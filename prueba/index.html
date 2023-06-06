@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spinning Wheel with Canvas</title>
+  <style>
+    canvas {
+      border: 2px solid black;
+    }
+
+    button {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="wheel" width="300" height="300"></canvas>
+  <button onclick="spinWheel()">Spin</button>
+
+  <script>
+    var colors = ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff"];
+    var canvas = document.getElementById("wheel");
+    var ctx = canvas.getContext("2d");
+    var radius = Math.min(canvas.width, canvas.height) / 2;
+
+    function drawWheel() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      var angle = (2 * Math.PI) / colors.length;
+      var startAngle = 0;
+
+      for (var i = 0; i < colors.length; i++) {
+        ctx.beginPath();
+        ctx.fillStyle = colors[i];
+        ctx.moveTo(canvas.width / 2, canvas.height / 2);
+        ctx.arc(
+          canvas.width / 2,
+          canvas.height / 2,
+          radius,
+          startAngle,
+          startAngle + angle
+        );
+        ctx.lineTo(canvas.width / 2, canvas.height / 2);
+        ctx.fill();
+        ctx.closePath();
+
+        startAngle += angle;
+      }
+    }
+
+    function spinWheel() {
+      var randomIndex = Math.floor(Math.random() * colors.length);
+      var degrees = 360 * 3 + randomIndex * (360 / colors.length);
+
+      var currentAngle = 0;
+      var targetAngle = (degrees * Math.PI) / 180;
+
+      var rotationInterval = setInterval(function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+        ctx.rotate(currentAngle);
+
+        drawWheel();
+
+        currentAngle += Math.PI / 180;
+
+        if (currentAngle >= targetAngle) {
+          clearInterval(rotationInterval);
+          ctx.setTransform(1, 0, 0, 1, 0, 0); // Reset the transformation matrix
+        }
+      }, 10);
+    }
+
+    drawWheel();
+  </script>
+</body>
+</html>
