@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        .rainbow-text {
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 3s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { background: red; }
+            14% { background: orange; }
+            28% { background: yellow; }
+            42% { background: green; }
+            57% { background: blue; }
+            71% { background: indigo; }
+            85% { background: violet; }
+            100% { background: red; }
+        }
+    </style>
 </head>
 <body>
-    <header style="background-color: blue; size: 50px;">h</header>
-    <nav style="background-color: darkmagenta; size: 50px;">o</nav>
-    <section style="background-color: yellow ; size: 503px;">l</section>
-    <aside style="background-color: green; size: 503px;">a</aside>
-    <footer style="background-color: red; size: 503px;">!</footer>
+    <h1 class="rainbow-text">Rainbow Text Example</h1>
+
+    <script>
+        setInterval(function() {
+            var rainbowText = document.querySelector('.rainbow-text');
+            rainbowText.style.animation = 'rainbow 3s linear infinite';
+        }, 500);
+    </script>
 </body>
 </html>
