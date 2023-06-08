@@ -4,3 +4,4 @@ setInterval(function() {
   void rainbowText.offsetWidth; // Trigger a reflow
   rainbowText.style.animation = null;
 }, 500);
+
