@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC TAC TOE</title>
+    <link rel="stylesheet" type="text/css" href="../reset_css/css.css">
+    <link rel="icon" type="image/x-icon" href="../imagenes/favicon/android-icon-36x36.png">
+</head>
+  <style>
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 80px);
+      gap: 15px;
+    }
+
+    .cell {
+      width: 80px; /* Adjust the cell width */
+      height: 80px; /* Adjust the cell height */
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px; /* Adjust the font size */
+      cursor: pointer;
+      color: white;
+      margin: 10px;
+      margin-left: 10px;
+    }
+
+    .cell:hover {
+      background-color: #ddd;
+    }
+  </style>
+<body>
+  <div class="board">
+    <div class="cell" onclick="makeMove(0, 0)"></div>
+    <div class="cell" onclick="makeMove(0, 1)"></div>
+    <div class="cell" onclick="makeMove(0, 2)"></div>
+    <div class="cell" onclick="makeMove(1, 0)"></div>
+    <div class="cell" onclick="makeMove(1, 1)"></div>
+    <div class="cell" onclick="makeMove(1, 2)"></div>
+    <div class="cell" onclick="makeMove(2, 0)"></div>
+    <div class="cell" onclick="makeMove(2, 1)"></div>
+    <div class="cell" onclick="makeMove(2, 2)"></div>
+  </div>
+
+  <script src="../js/tic tac toe.js"></script>
+</body>
+</html>

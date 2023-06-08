@@ -4,6 +4,7 @@ header{
     font-size: 100px;
     -webkit-animation: rainbow 2s linear infinite;
     animation: rainbow 2s linear infinite;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 @-webkit-keyframes rainbow {
