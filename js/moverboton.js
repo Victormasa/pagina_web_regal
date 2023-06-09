@@ -12,7 +12,7 @@ var clickCounter = 0;
     
         // Function to move the button to a random point
         function moveButton() {
-            if (clickCounter >= 10) {
+            if (clickCounter >= 30) {
             document.getElementById('preparada').removeEventListener('click', moveButton);
             window.location.href = '../html/regals.html'
             return;
