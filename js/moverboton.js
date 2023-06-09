@@ -14,7 +14,7 @@ var clickCounter = 0;
         function moveButton() {
             if (clickCounter >= 30) {
             document.getElementById('preparada').removeEventListener('click', moveButton);
-            window.location.href = '../html/regals.html'
+            window.location.href = 'html/regals.html'
             return;
             }
 
