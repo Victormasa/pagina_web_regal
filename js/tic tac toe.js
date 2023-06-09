@@ -13,6 +13,10 @@ let currentPlayer = 'X';
 
         if (checkWinner()) {
           alert(currentPlayer === 'X' ? 'PERDS' : 'GUANYES');
+          if (currentPlayer === 'X') {
+            setTimeout(function() {
+              window.location.href = "../html/correcte.html";
+          }, 2000); }
           resetBoard();
         } else if (checkDraw()) {
           alert('EMPAT');

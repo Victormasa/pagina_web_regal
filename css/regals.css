@@ -16,3 +16,13 @@
     font-size: 24px;
     
 }
+
+footer {
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 10px;
+  background-color: DarkSalmon;
+  color: black;
+  margin-top: 100px;
+}

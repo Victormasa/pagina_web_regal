@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../reset_css/css.css">
+  <head>
+      <meta charset="UTF-8">
+      <title>
+          CODI SECRET
+      </title>
+      <link rel="icon" type="image/x-icon" href="../imagenes/favicon/android-icon-36x36.png">
+  </head>
+  <style>
+    body {
+      text-align: center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 25px;
+      margin-bottom: 30px;
+    }
+    .success-message {
+      color: green;
+      font-weight: bold;
+    }
+
+    .error-message {
+      color: red;
+      font-weight: bold;
+    }
+
+    footer {
+      font-size: large;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-align: center;
+      padding: 10px;
+      background-color: DarkSalmon;
+      color: black;
+      margin-top: 100px;
+    }
+
+    button {
+      background-color: lightblue;
+      color: black;
+      font-size: 25px;
+    }
+
+    input {
+      font-size: 25px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enter the Secret Code to Unlock Something</h1>
+
+  <input type="text" id="codeInput" placeholder="Enter the secret code">
+  <button onclick="checkCode()">Unlock</button>
+  <button onclick="displayClue()">Clue</button> <!-- New button for displaying a clue -->
+
+  <div id="clueContainer"></div> <!-- Container for displaying the clue -->
+  <footer>
+    14 d'agost del 2019
+</footer>
+  <script src="../js/codi_secret.js"></script>
+</body>
+</html>
