@@ -1,0 +1,18 @@
+/* Add custom styling here */
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border: 1px solid #000;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+    /* New styling to hide images */
+    background-image: url('card-back.png');
+    background-size: cover;
+  }
+
+  .flipped {
+    /* Updated styling for flipped cards */
+    background-image: none;
+  }

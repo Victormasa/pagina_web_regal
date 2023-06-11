@@ -17,6 +17,10 @@
     
 }
 
+.box.active {
+  background-color: green;
+}
+
 footer {
   font-size: large;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
