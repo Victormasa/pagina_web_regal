@@ -41,13 +41,4 @@ button1.addEventListener('mouseenter', function() {
   }
 });
 
-button1.addEventListener('mouseover', function() {
-  isButtonHovered = true;
-});
-
-button1.addEventListener('mouseout', function() {
-  isButtonHovered = false;
-});
-    
-
 document.getElementById('preparada').addEventListener('click', moveButton);
