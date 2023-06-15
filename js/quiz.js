@@ -25,9 +25,9 @@ const quizData = [
       answer: "Totes les anteriors"
     },
     {
-      question: "Restaurant molt bo on ens vam menjar un entrepà espectacular",
-      options: ["Los panas", "Lara grill", "könig", "cap les anteriors"],
-      answer: "Lara grill"
+      question: "ULTIM RESTAURANT AL QUE HEM ANAT",
+      options: ["Los panas", "Lara grill", "könig", "Pocaxsolta"],
+      answer: "pocaxsolta"
     }
     // Add more questions here
   ];

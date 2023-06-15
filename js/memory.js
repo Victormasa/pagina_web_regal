@@ -1,67 +1,74 @@
-    // Array of image paths
-    const imagePaths = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg', 'image6.jpg'];
+const cards = document.querySelectorAll('.memory-card');
 
-    // Shuffle the image paths
-    const shuffledImages = shuffle(imagePaths.concat(imagePaths));
+let hasFlippedCard = false;
+let lockBoard = false;
+let firstCard, secondCard;
+let matchedPairs = 0;
+const totalPairs = cards.length / 2;
 
-    // Create the game board
-    const gameBoard = document.getElementById("gameBoard");
-    shuffledImages.forEach(imagePath => {
-      const cardElement = document.createElement("div");
-      cardElement.classList.add("card");
+function flipCard() {
+  if (lockBoard) return;
+  if (this === firstCard) return;
 
-      const imageElement = document.createElement("img");
-      imageElement.src = imagePath;
+  this.classList.add('flip');
 
-      cardElement.appendChild(imageElement);
-      gameBoard.appendChild(cardElement);
-    });
+  if (!hasFlippedCard) {
+    // first click
+    hasFlippedCard = true;
+    firstCard = this;
 
-    // Flip the card when clicked
-    const cardElements = document.getElementsByClassName("card");
-    Array.from(cardElements).forEach(card => {
-      card.addEventListener("click", flipCard);
-    });
-  
-    let flippedCards = [];
-  
-    // Function to handle card flipping
-    function flipCard() {
-      if (flippedCards.length < 2 && !this.classList.contains("flipped")) {
-        this.classList.add("flipped");
-        flippedCards.push(this);
-  
-        if (flippedCards.length === 2) {
-          checkMatch();
-        }
-      }
-    }
-  
-    // Function to check if flipped cards match
-    function checkMatch() {
-      const card1 = flippedCards[0];
-      const card2 = flippedCards[1];
-  
-      if (card1.textContent === card2.textContent) {
-        // Match!
-        card1.removeEventListener("click", flipCard);
-        card2.removeEventListener("click", flipCard);
-      } else {
-        // Not a match
-        setTimeout(() => {
-          card1.classList.remove("flipped");
-          card2.classList.remove("flipped");
-        }, 1000);
-      }
-  
-      flippedCards = [];
-    }
-  
-    // Function to shuffle an array
-    function shuffle(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
+    return;
+  }
+
+  // second click
+  secondCard = this;
+
+  checkForMatch();
+}
+
+function checkForMatch() {
+  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+
+  isMatch ? disableCards() : unflipCards();
+}
+
+function disableCards() {
+  firstCard.removeEventListener('click', flipCard);
+  secondCard.removeEventListener('click', flipCard);
+
+  matchedPairs++;
+  if (matchedPairs === totalPairs) {
+    handleGameCompletion();
+  }
+
+  resetBoard();
+}
+
+function unflipCards() {
+  lockBoard = true;
+
+  setTimeout(() => {
+    firstCard.classList.remove('flip');
+    secondCard.classList.remove('flip');
+
+    resetBoard();
+  }, 1500);
+}
+
+function resetBoard() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
+}
+
+function handleGameCompletion() {
+  window.location.href = '../html/correcte.html'
+}
+
+(function shuffle() {
+  cards.forEach(card => {
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+})();
+
+cards.forEach(card => card.addEventListener('click', flipCard));

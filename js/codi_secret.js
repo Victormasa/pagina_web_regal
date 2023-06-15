@@ -11,7 +11,7 @@ function checkCode() {
 }
 
 function redirectPage() {
-  window.location.href = "./correcte.html"; 
+  window.location.href = "../html/regals.html"; 
 }
 
 function displayClue() {

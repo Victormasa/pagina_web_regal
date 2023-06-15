@@ -14,7 +14,7 @@ function getRandomPoint() {
 function moveButton() {
     if (clickCounter >= 10) {
       document.getElementById('preparada').removeEventListener('click', moveButton);
-      window.location.href = '../html/regals.html'
+      window.location.href = '../html/prova_codi.html'
       return;
     }
 
