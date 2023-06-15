@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PENJAT</title>
+  <style>
+    .header {
+      position: relative;
+      top: 50%;
+      padding: 32px;
+      font-size: large;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-align: center;
+      background-color: DarkSalmon;
+      color: black;
+    }
+    
+    footer {
+      font-size: large;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-align: center;
+      padding: 10px;
+      background-color: DarkSalmon;
+      color: black;
+      margin-top: 10px  ;
+    }
+    </style>
+</head>
+<body>
+  <div class="header" id="header">
+    <h1>PENJAT</h1>
+    <p>Hauràs d'encertar la praula màgica</p>
+</div>
+  <div id="word-container">
+    <p id="word-display"></p>
+  </div>
+  <div id="guesses-container">
+    <p>ERRATES: <span id="incorrect-guesses"></span></p>
+    <p>INTENTS: <span id="remaining-attempts"></span></p>
+  </div>
+  <div id="keyboard-container">
+  </div>
+  <footer>
+    14 d'agost del 2019
+    </footer>
+
+  <script src="../js/penjat.js">
+
+  </script>
+</body>
+</html>
